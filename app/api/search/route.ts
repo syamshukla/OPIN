@@ -17,7 +17,7 @@ export async function GET(req: Request) {
       );
     }
 
-    const googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_API_KEY}&cx=${process.env.SEARCH_ENGINE_ID}&q=${q}`;
+    const googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_API_KEY}&cx=${process.env.NEXT_PUBLIC_SEARCH_ENGINE_ID}&q=${q}`;
 
     console.log("Fetching from URL:", googleSearchUrl);
 
