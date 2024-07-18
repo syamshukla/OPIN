@@ -30,7 +30,7 @@ const SearchPage = () => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [newQuery, setNewQuery] = useState("");
   const handleSearch = (e: { target: { value: SetStateAction<string> } }) => {
     setQuery(e.target.value);
   };
@@ -52,6 +52,7 @@ const SearchPage = () => {
           throw new Error(data.error);
         }
         setResults(data);
+        setNewQuery(query);
       } catch (error) {
         console.error("Error fetching search results:", error);
         setError("Error fetching search results");
@@ -108,7 +109,7 @@ const SearchPage = () => {
         <>
           <h1 className="text-3xl font-bold mb-4">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-            Search Results for "{query}"
+            Search Results for "{newQuery}"
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {results.map(
